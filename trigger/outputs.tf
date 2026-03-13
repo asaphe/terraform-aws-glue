@@ -1,9 +1,9 @@
 output "id" {
   description = "Glue trigger Name"
-  value       = element(concat(aws_glue_trigger.this.*.id, [""]), 0)
+  value       = aws_glue_trigger.this[0].id
 }
 
 output "arn" {
   description = "Glue trigger ARN"
-  value       = element(concat(aws_glue_trigger.this.*.arn, [""]), 0)
+  value       = aws_glue_trigger.this[0].arn
 }

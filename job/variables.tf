@@ -34,20 +34,14 @@ variable "connections" {
   default     = []
 }
 
-variable "additional_connections" {
-  type        = list(string)
-  description = "(Optional) The list of connections used for the job."
-  default     = []
-}
-
 variable "default_arguments" {
   type        = map(any)
   description = "(Optional) The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the Calling AWS Glue APIs in Python topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the Special Parameters Used by AWS Glue topic in the developer guide."
-  default     = {
-    "--job-language"                        = "scala"
-    "--enable-continuous-cloudwatch-log"    = "true"
-    "--enable-continuous-log-filter"        = "true"
-    "--enable-metrics"                      = ""
+  default = {
+    "--job-language"                     = "scala"
+    "--enable-continuous-cloudwatch-log" = "true"
+    "--enable-continuous-log-filter"     = "true"
+    "--enable-metrics"                   = ""
   }
 }
 

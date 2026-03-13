@@ -80,7 +80,7 @@ variable "parameters" {
 }
 
 variable "partition_index" {
-  type        = map(object({
+  type = map(object({
     index_name = string
     keys       = string
   }))

@@ -1,9 +1,9 @@
 output "id" {
   description = "Glue DB Name"
-  value       = element(concat(aws_glue_catalog_database.this.*.id, [""]), 0)
+  value       = aws_glue_catalog_database.this[0].id
 }
 
 output "arn" {
   description = "Glue DB ARN"
-  value       = element(concat(aws_glue_catalog_database.this.*.arn, [""]), 0)
+  value       = aws_glue_catalog_database.this[0].arn
 }

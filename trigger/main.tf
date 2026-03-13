@@ -16,8 +16,8 @@ resource "aws_glue_trigger" "this" {
       job_name               = lookup(var.actions, "crawler_name", null) == null ? lookup(var.actions, "job_name", null) : null
       timeout                = lookup(var.actions, "timeout", null)
       security_configuration = lookup(var.actions, "security_configuration", null)
-      notification_property  {
-        notify_delay_after = lookup(var.actions,"notify_delay_after", 1)
+      notification_property {
+        notify_delay_after = lookup(var.actions, "notify_delay_after", 1)
       }
     }
   }

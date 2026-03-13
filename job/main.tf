@@ -16,7 +16,7 @@ resource "aws_glue_job" "this" {
 
   command {
     name            = contains(keys(var.command), "name") ? lookup(var.command, "name", null) : null
-    script_location = contains(keys(var.command), "script_location") ? lookup(var.command, "script_location") : null
+    script_location = contains(keys(var.command), "script_location") ? var.command.script_location : null
     python_version  = contains(keys(var.command), "name") && lookup(var.command, "name", null) == "pythonshell" ? lookup(var.command, "python_version", null) : null
   }
 

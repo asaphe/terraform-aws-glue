@@ -26,7 +26,6 @@ module "glue_job" {
   command                = var.command
   description            = var.description
   connections            = var.connections
-  additional_connections = var.additional_connections
   default_arguments      = var.default_arguments
   execution_property     = var.execution_property
   glue_version           = var.glue_version

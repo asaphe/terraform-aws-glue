@@ -70,7 +70,7 @@ resource "aws_glue_catalog_table" "this" {
           schema_version_number = lookup(schema_reference.value, "schema_version_number", null)
           dynamic "schema_id" {
             iterator = schema_id
-            for_each = lookup(schema_reference.value, "schema_id")
+            for_each = schema_reference.value.schema_id
             content {
               schema_arn    = lookup(schema_id.value, "schema_arn", null)
               schema_name   = lookup(schema_id.value, "schema_name", null)
@@ -81,10 +81,10 @@ resource "aws_glue_catalog_table" "this" {
       }
       dynamic "sort_columns" {
         iterator = sort_columns
-        for_each = lookup(storage_descriptor.value,"sort_columns", {})
+        for_each = lookup(storage_descriptor.value, "sort_columns", {})
         content {
-          column     = lookup(sort_columns.value,"column")
-          sort_order = lookup(sort_columns.value,"sort_order")
+          column     = sort_columns.value.column
+          sort_order = sort_columns.value.sort_order
         }
       }
     }

@@ -1,9 +1,3 @@
-variable "environment" {
-  type        = string
-  description = "Environment name"
-  default     = null
-}
-
 variable "name" {
   type        = string
   description = "(Required) The name of the connection. It must be unique in your account."
@@ -38,12 +32,6 @@ variable "match_criteria" {
   type        = list(string)
   description = "(Optional) A list of criteria that can be used in selecting this connection."
   default     = []
-}
-
-variable "physical_connection_requirements" {
-  type        = map(any)
-  description = "(Optional) A map of physical connection requirements, such as VPC and SecurityGroup. Defined below."
-  default     = {}
 }
 
 variable "security_group_id_list" {

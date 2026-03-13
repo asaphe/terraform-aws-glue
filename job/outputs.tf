@@ -1,9 +1,9 @@
 output "id" {
   description = "Glue Job Name"
-  value       = element(concat(aws_glue_job.this.*.id, [""]), 0)
+  value       = aws_glue_job.this[0].id
 }
 
 output "arn" {
   description = "Glue Job ARN"
-  value       = element(concat(aws_glue_job.this.*.arn, [""]), 0)
+  value       = aws_glue_job.this[0].arn
 }
